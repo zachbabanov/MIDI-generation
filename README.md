@@ -3,10 +3,10 @@ Generating a MIDI-format piano songs with neural network on python
 
 ## Requirements
 Installing the following packages using pip:
-	* Music21
-	* Keras
-	* Tensorflow
-	* h5py
+* Music21
+* Keras
+* Tensorflow
+* h5py
 
 ## Training
 To train the network you run:
