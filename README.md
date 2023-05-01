@@ -12,12 +12,12 @@ Installing the following packages using pip:
 To train the network you run:
 
 ```
-python lstm.py
+python train.py
 ```
 The network will use every midi file in ./midi_songs to train the network
 
-Once you have trained the network you can generate text using **predict.py**:
+Once you have trained the network you can generate text using **generate.py**:
 
 ```
-python predict.py
+python generate.py
 ```
