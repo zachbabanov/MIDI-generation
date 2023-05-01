@@ -8,26 +8,26 @@ from keras.layers import LSTM
 from keras.layers import BatchNormalization as BatchNorm
 from keras.layers import Activation
 
+
 def generate():
-    """ Generate a piano midi file """
-    #load the notes used to train the model
+    # load the notes used to train the model
     with open('data/notes', 'rb') as filepath:
         notes = pickle.load(filepath)
 
     # Get all pitch names
-    pitchnames = sorted(set(item for item in notes))
+    pitch_names = sorted(set(item for item in notes))
     # Get all pitch names
     n_vocab = len(set(notes))
 
-    network_input, normalized_input = prepare_sequences(notes, pitchnames, n_vocab)
+    network_input, normalized_input = prepare_sequences(notes, pitch_names, n_vocab)
     model = create_network(normalized_input, n_vocab)
-    prediction_output = generate_notes(model, network_input, pitchnames, n_vocab)
+    prediction_output = generate_notes(model, network_input, pitch_names, n_vocab)
     create_midi(prediction_output)
 
-def prepare_sequences(notes, pitchnames, n_vocab):
-    """ Prepare the sequences used by the Neural Network """
+
+def prepare_sequences(notes, pitch_names, n_vocab):
     # map between notes and integers and back
-    note_to_int = dict((note, number) for number, note in enumerate(pitchnames))
+    note_to_int = dict((note, number) for number, note in enumerate(pitch_names))
 
     sequence_length = 100
     network_input = []
@@ -45,10 +45,10 @@ def prepare_sequences(notes, pitchnames, n_vocab):
     # normalize input
     normalized_input = normalized_input / float(n_vocab)
 
-    return (network_input, normalized_input)
+    return network_input, normalized_input
+
 
 def create_network(network_input, n_vocab):
-    """ create the structure of the neural network """
     model = Sequential()
     model.add(LSTM(
         512,
@@ -56,7 +56,7 @@ def create_network(network_input, n_vocab):
         recurrent_dropout=0.3,
         return_sequences=True
     ))
-    model.add(LSTM(512, return_sequences=True, recurrent_dropout=0.3,))
+    model.add(LSTM(512, return_sequences=True, recurrent_dropout=0.3, ))
     model.add(LSTM(512))
     model.add(BatchNorm())
     model.add(Dropout(0.3))
@@ -73,12 +73,12 @@ def create_network(network_input, n_vocab):
 
     return model
 
-def generate_notes(model, network_input, pitchnames, n_vocab):
-    """ Generate notes from the neural network based on a sequence of notes """
-    # pick a random sequence from the input as a starting point for the prediction
-    start = numpy.random.randint(0, len(network_input)-1)
 
-    int_to_note = dict((number, note) for number, note in enumerate(pitchnames))
+def generate_notes(model, network_input, pitch_names, n_vocab):
+    # pick a random sequence from the input as a starting point for the prediction
+    start = numpy.random.randint(0, len(network_input) - 1)
+
+    int_to_note = dict((number, note) for number, note in enumerate(pitch_names))
 
     pattern = network_input[start]
     prediction_output = []
@@ -99,9 +99,8 @@ def generate_notes(model, network_input, pitchnames, n_vocab):
 
     return prediction_output
 
+
 def create_midi(prediction_output):
-    """ convert the output from the prediction to notes and create a midi file
-        from the notes """
     offset = 0
     output_notes = []
 
@@ -131,6 +130,7 @@ def create_midi(prediction_output):
     midi_stream = stream.Stream(output_notes)
 
     midi_stream.write('midi', fp='test_output.mid')
+
 
 if __name__ == '__main__':
     generate()

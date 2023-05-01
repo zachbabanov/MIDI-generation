@@ -11,11 +11,10 @@ from keras.layers import BatchNormalization as BatchNorm
 from keras.utils import np_utils
 from keras.callbacks import ModelCheckpoint
 
+
 def train_network():
-    """ Train a Neural Network to generate music """
     notes = get_notes()
 
-    # get amount of pitch names
     n_vocab = len(set(notes))
 
     network_input, network_output = prepare_sequences(notes, n_vocab)
@@ -24,8 +23,8 @@ def train_network():
 
     train(model, network_input, network_output)
 
+
 def get_notes():
-    """ Get all the notes and chords from the midi files in the ./midi_songs directory """
     notes = []
 
     for file in glob.glob("midi_songs/*.mid"):
@@ -35,10 +34,10 @@ def get_notes():
 
         notes_to_parse = None
 
-        try: # file has instrument parts
+        try:
             s2 = instrument.partitionByInstrument(midi)
-            notes_to_parse = s2.parts[0].recurse() 
-        except: # file has notes in a flat structure
+            notes_to_parse = s2.parts[0].recurse()
+        except:
             notes_to_parse = midi.flat.notes
 
         for element in notes_to_parse:
@@ -52,15 +51,13 @@ def get_notes():
 
     return notes
 
+
 def prepare_sequences(notes, n_vocab):
-    """ Prepare the sequences used by the Neural Network """
     sequence_length = 100
 
-    # get all pitch names
-    pitchnames = sorted(set(item for item in notes))
+    pitch_names = sorted(set(item for item in notes))
 
-     # create a dictionary to map pitches to integers
-    note_to_int = dict((note, number) for number, note in enumerate(pitchnames))
+    note_to_int = dict((note, number) for number, note in enumerate(pitch_names))
 
     network_input = []
     network_output = []
@@ -74,17 +71,16 @@ def prepare_sequences(notes, n_vocab):
 
     n_patterns = len(network_input)
 
-    # reshape the input into a format compatible with LSTM layers
     network_input = numpy.reshape(network_input, (n_patterns, sequence_length, 1))
-    # normalize input
+
     network_input = network_input / float(n_vocab)
 
     network_output = np_utils.to_categorical(network_output)
 
-    return (network_input, network_output)
+    return network_input, network_output
+
 
 def create_network(network_input, n_vocab):
-    """ create the structure of the neural network """
     model = Sequential()
     model.add(LSTM(
         512,
@@ -92,7 +88,7 @@ def create_network(network_input, n_vocab):
         recurrent_dropout=0.3,
         return_sequences=True
     ))
-    model.add(LSTM(512, return_sequences=True, recurrent_dropout=0.3,))
+    model.add(LSTM(512, return_sequences=True, recurrent_dropout=0.3, ))
     model.add(LSTM(512))
     model.add(BatchNorm())
     model.add(Dropout(0.3))
@@ -106,8 +102,8 @@ def create_network(network_input, n_vocab):
 
     return model
 
+
 def train(model, network_input, network_output):
-    """ train the neural network """
     filepath = "weights-improvement-{epoch:02d}-{loss:.4f}-bigger.hdf5"
     checkpoint = ModelCheckpoint(
         filepath,
@@ -119,6 +115,7 @@ def train(model, network_input, network_output):
     callbacks_list = [checkpoint]
 
     model.fit(network_input, network_output, epochs=200, batch_size=128, callbacks=callbacks_list)
+
 
 if __name__ == '__main__':
     train_network()
