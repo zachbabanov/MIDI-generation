@@ -14,13 +14,9 @@ from keras.callbacks import ModelCheckpoint
 
 def train_network():
     notes = get_notes()
-
-    n_vocab = len(set(notes))
-
-    network_input, network_output = prepare_sequences(notes, n_vocab)
-
-    model = create_network(network_input, n_vocab)
-
+    notes_vocab = len(set(notes))
+    network_input, network_output = prepare_sequences(notes, notes_vocab)
+    model = create_network(network_input, notes_vocab)
     train(model, network_input, network_output)
 
 
@@ -29,11 +25,9 @@ def get_notes():
 
     for file in glob.glob("midi_songs/*.mid"):
         midi = converter.parse(file)
-
         print("Parsing %s" % file)
 
         notes_to_parse = None
-
         try:
             s2 = instrument.partitionByInstrument(midi)
             notes_to_parse = s2.parts[0].recurse()
@@ -54,15 +48,12 @@ def get_notes():
 
 def prepare_sequences(notes, n_vocab):
     sequence_length = 100
-
     pitch_names = sorted(set(item for item in notes))
-
     note_to_int = dict((note, number) for number, note in enumerate(pitch_names))
 
     network_input = []
     network_output = []
 
-    # create input sequences and the corresponding outputs
     for i in range(0, len(notes) - sequence_length, 1):
         sequence_in = notes[i:i + sequence_length]
         sequence_out = notes[i + sequence_length]
@@ -70,13 +61,9 @@ def prepare_sequences(notes, n_vocab):
         network_output.append(note_to_int[sequence_out])
 
     n_patterns = len(network_input)
-
     network_input = numpy.reshape(network_input, (n_patterns, sequence_length, 1))
-
     network_input = network_input / float(n_vocab)
-
     network_output = np_utils.to_categorical(network_output)
-
     return network_input, network_output
 
 
