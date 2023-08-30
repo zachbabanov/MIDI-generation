@@ -8,7 +8,7 @@ from keras.layers import Dropout
 from keras.layers import LSTM
 from keras.layers import Activation
 from keras.layers import BatchNormalization as BatchNorm
-from keras.utils import np_utils
+from keras.utils import to_categorical as np_utils
 from keras.callbacks import ModelCheckpoint
 
 
