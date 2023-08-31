@@ -29,7 +29,6 @@ def clean_image(image):
                     image[x][y] = 0.0
     return image
 
-
 def image2midi(image, fname):
     mid = mido.MidiFile()
     track_list = mido.MidiTrack()
@@ -49,9 +48,8 @@ def image2midi(image, fname):
         time += 1
     mid.tracks.append(track_list)
     mid.ticks_per_beat = 12
-    mid.save('VAE\\data\\midi\\'+fname+'.midi')
+    mid.save('VAE\\output\\'+fname+'.midi')
     return
-
 
 def generate_song():
     r1 = random.uniform(l_range, u_range)
@@ -59,14 +57,11 @@ def generate_song():
     sample_vector = np.array([[r1, -r2]])
     decoded_example = decoder.predict(sample_vector)
 
-
 def generate_dirs():
     if not os.path.exists("VAE\\output\\"):
         os.mkdir("VAE\\output\\")
     if not os.path.exists("VAE\\output\\images\\"):
         os.mkdir("VAE\\output\\images\\")
-    if not os.path.exists("VAE\\output\\midi\\"):
-        os.mkdir("VAE\\output\\midi\\")
 
 def generate():
     generate_dirs()

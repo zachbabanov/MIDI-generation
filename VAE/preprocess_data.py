@@ -137,25 +137,12 @@ def open_messages(fname):
                     image[x][y] = 0.0
                 else:
                     image[x][y] = 255.0
-    '''    for y in range(len(image[0])):
-        for x in range(len(image)):
-            if image[x][y] == 255.0:
-                if y > 0 and image[x][y - 1] == 0.0:
-                    image[x][y - 1] = 127.0
-                if x > 0 and image[x - 1][y] == 0.0:
-                    image[x - 1][y] = 127.0
-                if x < len(image)-1-1:
-                    if image[x + 1][y] == 0.0:
-                        image[x + 1][y] = 127.0
-                if y < len(image[0])-1-1:
-                    if image[x][y + 1] == 0.0:
-                        image[x][y + 1] = 127.0'''
     return image
 
 
 def preprocess():
     whole_seq = []
-    path = 'D:\\ProjectsOngoing\\MIDI-generation\\data\\preproc'
+    path = 'VAE\\data\\preproc\\'
     entries = os.listdir(path+'\\')
     save_dir = path
     img_id = 0
@@ -163,8 +150,4 @@ def preprocess():
     print("MIDI to image conversion for the "+" MIDI files complete.")
     print("Total songs: ", total_songs)
     print("Total images: ", img_id)
-    ftxt = open("datasets\\" + ".txt", "w")
-    ftxt.write("Total songs: " + str(total_songs) + "\n")
-    ftxt.write("Total images: " + str(img_id) + "\n")
-    ftxt.close()
 
