@@ -1,3 +1,6 @@
 .venv/
-/dataset/*.midi
+datasetFULL/*.midi
+*/dataset/*.midi
 *.pyc
+.vscode
+*/datasets/
