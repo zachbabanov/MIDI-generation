@@ -1,0 +1,28 @@
+X:1
+T:Tsuki_To_Hoshizora
+I:abc-version 2.1
+I:abc-creator MidiZyx2abc 6.04
+I:linebreak $
+M:C
+L:1/8
+Q:1/4=85
+I:score Piano 2
+K:Db
+V:Piano name="Piano"
+F2E3/D/||D/E/F3-F2_A2||BAGFEz2F/G/|%
+__BGGFEDzFF||GzAB=A2zAAGFG||A4zABc||c=AAFF2E3/D/||D/E/F3-F2_A2||BAGFEz2F/G/Az4[DF]2||GzAzG2||FEDz2D||CDzFEFz2DFAz4[DF]2||GA||c'4z3G2||FEF3E||FFzFGFEFz2D||CzED||DCzEFEz2F/G/A||g4b2d'2||D,,A,,D,F,A,2z2DFA-||[CA]4z2||z8|%
+__Bz3||GA__B3zG2||FEDD2zD||DCzEFEz2E||FFzFGFEFz2DFAB||FF2E3/D/||D/E/Fz4_A2||BAGFEz2F/G/Az4[DF]2||GA__BBAGF||B,,F,B,F,A,,E,_A,E,||G,,D,G,D,A,,E,A,E,||F,,C,F,C,B,,F,B,F,|%
+D,B,||D,,A,,D,F,A,2z2||z8||z8|%
+__Bz2E||FFz2AzGFGBBAGF||d'8|%
+F,,C,F,=A,CA,CF,[C,A,]F,||[D,B,]F,[D,B,]F,[E,B,]__A,DBGFEDzE3/D/||D/E/F3-F2_A2||BAGFE2EF|%
+GzA2zAAGFG||A4zABc||c=AAFFzA,,E,A,z||B,,F,B,zFEFz2||z8||z8||z8||z8||z8||z8||z8|%
+__Bz3D/E/||A4z2AAGFG||A4zABc||c=AAFF||GFEDD2zD||DCzEFEz2%%MIDI program 0 % Grand Piano
+V:2
+F2E3/D/||D/E/F3-F2_A2||BAGFEz2F/G/|%
+__BGGFEDzFF||GzAB=A2zAAGFG||A4zABc||c=AAFF2E3/D/||D/E/F3-F2_A2||BAGFEz2F/G/Az4[DF]2||GzAzG2||FEDz2D||CDzFEFz2DFAz4[DF]2||GA||c'4z3G2||FEF3E||FFzFGFEFz2D||CzED||DCzEFEz2F/G/A||g4b2d'2||D,,A,,D,F,A,2z2DFA-||[CA]4z2||z8|%
+__Bz3||GA__B3zG2||FEDD2zD||DCzEFEz2E||FFzFGFEFz2DFAB||FF2E3/D/||D/E/Fz4_A2||BAGFEz2F/G/Az4[DF]2||GA__BBAGF||B,,F,B,F,A,,E,_A,E,||G,,D,G,D,A,,E,A,E,||F,,C,F,C,B,,F,B,F,|%
+D,B,||D,,A,,D,F,A,2z2||z8||z8|%
+__Bz2E||FFz2AzGFGBBAGF||d'8|%
+F,,C,F,=A,CA,CF,[C,A,]F,||[D,B,]F,[D,B,]F,[E,B,]__A,DBGFEDzE3/D/||D/E/F3-F2_A2||BAGFE2EF|%
+GzA2zAAGFG||A4zABc||c=AAFFzA,,E,A,z||B,,F,B,zFEFz2||z8||z8||z8||z8||z8||z8||z8|%
+__Bz3D/E/||A4z2AAGFG||A4zABc||c=AAFF||GFEDD2zD||DCzEFEz2

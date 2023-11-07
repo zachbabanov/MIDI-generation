@@ -1,0 +1,22 @@
+X:1
+T:MIDI-Unprocessed_01_R1_2006_01-09_ORIG_MID--AUDIO_01_R1_2006_05_Track05_wav
+I:abc-version 2.1
+I:abc-creator MidiZyx2abc 6.04
+I:linebreak $
+M:C
+L:1/8
+Q:1/4=120
+I:score Piano
+K:C
+V:Piano name="Piano"
+A__Bz3G2||FEFFz|%
+F,,C,F,=A,CA,CF,[C,A,]F,||[D,B,]F,[D,B,]F,[E,B,]__A,[E,B,]A,[E,B,]A,|%
+DB||FE/E/-E2-E2FG||A2FE|%
+F,,C,F,=A,CA,CF,||g4b2d'2||F,,C,F,=A,CA,CF,[C,A,]F,||[D,B,]F,[D,B,]F,[E,B,]__A,|%
+B,,F,B,F,A,,E,_A,E,||G,,D,G,D,A,,E,A,E,||F,,C,F,C,B,,F,B,F,|%
+B,,F,B,F,A,,E,_A,E,||G,,D,G,D,G,,D,G,D,||A,,E,A,E,A,,E,A,E,||G,,D,G,B,DB,DB,||A,,E,A,CECEC||[C,A,]E,[C,A,]E,F,,C,F,C,||G,,D,G,B,DB,DB,||A,,E,A,CE2EC||gaf4||[CA]4z2FG||A2zAAGFG||A4zABc||c=AAFF||G2zE3/D/||D/E/F3-F2_A2||BAGFE2EF||GFEDz2||z8||z8||z8|%
+__BBAGF||d'8-||B,,F,B,F,A,,E,_A,E,||G,,D,G,D,G,,D,G,D,||D,G,__B,D,B,||D,,A,,D,F,A,2z2E/F/||G2zA,,E,A,z||BAGFE2EF|%
+GA__B3zG2||F/G/Az4[DF]2||GA||d'8-||Fz4_A2||BAGFE2EF||GFEDD2zDFAz2Az||[D,B,]G,[D,B,]G,||[C,A,]E,[C,A,]E,F,,C,F,C,||G,,D,G,z||BAGFE2EF||GFEDzG,,D,G,z||[D,B,]G,[D,B,]G,[C,A,]F,[C,A,]F,||[D,A,]F,[D,A,]F,[D,A,]F,[D,A,]F,|%
+[D,B,]G,[D,B,]G,[C,=A,]F,[C,A,]F,||[D,B,]F,[D,B,]F,[E,B,]__A,|%
+D,A,DEFEFF||GzAzG2||FEDD2zDFAz4[DF]2||GA__Bz3||GFEDz2E||FFz2Az||D,2__B,2||gfe2c2||B,,F,B,F,A,,E,_A,E,||G,,D,G,D,A,,E,A,E,||F,,C,F,C,B,,F,B,F,|%
+A,,E,A,E,A,,E,A,E,||G,,D,G,B,DB,DB,||A,,E,A,CECEC%%MIDI program 0 % Grand Piano
